@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription Tool</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Transcription Tool</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload Video File:</label>
+                <input type="file" class="form-control-file" id="file" name="file" accept=".mp4,.wav,.ogg,.webm">
+            </div>
+            <div class="form-group">
+                <label for="youtube_url">External media link:</label>
+                <input type="text" class="form-control" id="youtube_url" name="youtube_url">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div class="mt-4">
+            <h2>Available Files:</h2>
+            <ul class="list-group">
+                {% for filename in files %}
+                <li class="list-group-item">
+                    <a href="{{ url_for('download', filename=filename) }}">{{ filename }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <form action="/empty" method="post" id="empty-form">
+            <button type="submit" class="btn btn-danger mt-3" onclick="return confirmEmpty()">Empty</button>
+        </form>
+    </div>
+
+    <script>
+        function confirmEmpty() {
+            return confirm("Are you sure you want to empty the folder?");
+        }
+    </script>
+</body>
+</html>
