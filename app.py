@@ -124,8 +124,5 @@ def empty_folder():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    file_path = '7bdc73aa-cc05-b7e0-6bec-bf9434f4c68c.m4a'
-    transcribe_audio(file_path)
-
-    #app.run(debug=True)
+    app.run(debug=True)
 
