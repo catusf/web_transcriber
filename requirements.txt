@@ -6,7 +6,7 @@ chardet==5.2.0
 charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
-cryptography==42.0.7
+cryptography==43.0.1
 decorator==4.4.2
 dill==0.3.8
 ffmpeg-python==0.2.0
